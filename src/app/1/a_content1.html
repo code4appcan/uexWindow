@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="css/ui-box.css">
+        <link rel="stylesheet" href="css/ui-base.css">
+        <link rel="stylesheet" href="css/ui-color.css">
+        <link rel="stylesheet" href="css/appcan.icon.css">
+        <link rel="stylesheet" href="css/appcan.control.css">
+        <link rel="stylesheet" href="css/my.css"/>
+    </head>
+    <body class="um-vp bc-bg" ontouchstart>
+        <div class="mybtn1" >
+            窗口1
+        </div>
+        <div class="mybtn1" id="b1">
+            sendToBack
+        </div>
+        <div class="mybtn1" id="b2">
+            insertAbove
+        </div>
+        <div class="mybtn1" id="b3">
+            insertBelow
+        </div>
+    </body>
+    <script src="js/appcan.js"></script>
+    <script src="js/appcan.control.js"></script>
+    </body>
+    <script>
+        window.uexOnload = function(type) {
+            //uexWindow.sendToBack();
+            //uexWindow.sendPopoverToBack("a_content1");
+        }
+        // appcan.ready(function() {
+        //
+        // });
+        // appcan.button("#btn6", "ani-act", function() {
+        // //uexWindow.closeMultiPopover('content')
+        // //uexWindow.setSelectedPopOverInMultiWindow("content",2)
+        // //uexWindow.setMultiPopoverFrame("content",20,20,400,400)
+        //
+        // })
+        appcan.button("#b1", "ani-act", function() {
+            //uexWindow.sendToBack()
+        })
+        appcan.button("#b2", "ani-act", function() {
+            uexWindow.insertAbove("a_content1")
+        })
+        appcan.button("#b3", "ani-act", function() {
+            //uexWindow.insertBelow('a_content2')
+           // uexWindow.makeRotate(90, 1, 0, 1);
+           // uexWindow.commitAnimition();
+           // alert("动画不管用")   
+           
+        })
+    </script>
+</html>

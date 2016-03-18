@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="css/ui-box.css">
+        <link rel="stylesheet" href="css/ui-base.css">
+        <link rel="stylesheet" href="css/ui-color.css">
+        <link rel="stylesheet" href="css/appcan.icon.css">
+        <link rel="stylesheet" href="css/appcan.control.css">
+
+    </head>
+    <body class="um-vp " ontouchstart>
+        <div id="page_0" class="up ub ub-ver bc-bg" tabindex="0">
+            <!--header开始-->
+            <div id="header" class="">
+                <div class="mybtn6 btn" id="btn7">
+                    打开三个浮动窗
+                </div>
+                <div class="mybtn btn" id="btn8">
+                    关闭三个浮动窗
+                </div>
+                <div class="mybtn2 btn" id="btn10">
+                    uexWindow.bringToFront
+                </div>
+                <div class="mybtn3 btn" id="btn11">
+                    uexWindow.sendToBack
+                </div>
+                <div class="mybtn4 btn" id="btn12_1">
+                    uexWindow.insertBelow
+                </div>
+                <div class="mybtn4 btn" id="btn12_2">
+                    uexWindow.insertAbove
+                </div>
+                <div class="mybtn5 btn" id="btn13_1">
+                    uexWindow.bringPopoverToFront
+                </div>
+                <div class="mybtn5 btn" id="btn13_2">
+                    uexWindow.sendPopoverToBack
+                </div>
+                <div class="mybtn6 btn" id="btn14_1">
+                    uexWindow.insertPopoverAbovePopover
+                </div>
+                <div class="mybtn6 btn" id="btn14_2">
+                    uexWindow.insertPopoverBelowPopover
+                </div>
+                <div class="mybtn btn" id="btn15_1">
+                    uexWindow.insertWindowAboveWindow和uexWindow.insertWindowBelowWindow
+                </div>
+                
+                <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+            </div>
+            <!--header结束--><!--content开始-->
+            <div id="content" class="ub-f1 tx-l">
+
+            </div>
+            <!--content结束-->
+
+        </div>
+        <script src="js/appcan.js"></script>
+        <script src="js/appcan.control.js"></script>
+    </body>
+    <script>
+                appcan.ready(function() {
+        });
+       
+        appcan.button("#btn7", "btn-act", function() {
+            uexWindow.openPopover("a_content1", 0, "a_content1.html", "", 0, 500, '', '', '', 0, 0);
+    uexWindow.openPopover("a_content2", 0, "a_content2.html", "", 80, 500, '', '', '', 0, 0);
+    uexWindow.openPopover("a_content3", 0, "a_content3.html", "", 160, 500, '', '', '', 0, 0);
+        })
+        appcan.button("#btn8", "btn-act", function() {
+        uexWindow.closePopover("a_content1");
+        uexWindow.closePopover("a_content2");
+        uexWindow.closePopover("a_content3");
+        })
+        appcan.button("#btn10", "btn-act", function() {
+        alert("置顶窗口2");
+        uexWindow.evaluatePopoverScript("","a_content2","uexWindow.bringToFront();");
+        })
+        appcan.button("#btn11", "btn-act", function() {
+        alert("开了多浮动窗口之后，置底窗口3");
+        uexWindow.evaluatePopoverScript("","a_content3", "uexWindow.sendToBack();");
+        })
+        appcan.button("#btn12_1", "btn-act", function() {
+        alert("把多浮动窗口2放到1下面");
+        uexWindow.evaluatePopoverScript("","a_content2", "uexWindow.insertBelow('a_content1');");
+        })
+        appcan.button("#btn12_2", "btn-act", function() {
+        alert("把多浮动窗口1放到2上面");
+        uexWindow.evaluatePopoverScript("","a_content1", "uexWindow.insertAbove('a_content2');");
+        })
+        appcan.button("#btn13_1", "btn-act", function() {
+        alert("置顶窗口3");
+        uexWindow.bringPopoverToFront('a_content3');
+        })
+        appcan.button("#btn13_2", "btn-act", function() {
+        alert("置底窗口3");
+        uexWindow.sendPopoverToBack('a_content3');
+        })
+        appcan.button("#btn14_1", "btn-act", function() {
+        alert("把多浮动窗口2放到1上面");
+        uexWindow.insertPopoverAbovePopover('a_content2','a_content1');
+        })
+        appcan.button("#btn14_2", "btn-act", function() {
+        alert("把多浮动窗口2放到1下面");
+        uexWindow.insertPopoverBelowPopover('a_content2','a_content1');
+        })
+        appcan.button("#btn15_1", "btn-act", function() {
+           // alert(1);
+        uexWindow.open("hello",0,"hello.html",0,0,0,256);
+        uexWindow.open("hi",0,"hi.html",0,0,0,256);
+        //uexWindow.insertWindowAboveWindow("hi","hello");
+        //uexWindow.insertWindowBelowWindow("hi","hello");
+        })
+        
+    </script>
+</html>

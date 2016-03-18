@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="css/ui-box.css">
+        <link rel="stylesheet" href="css/ui-base.css">
+        <link rel="stylesheet" href="css/ui-color.css">
+        <link rel="stylesheet" href="css/appcan.icon.css">
+        <link rel="stylesheet" href="css/appcan.control.css">
+        <link rel="stylesheet" href="css/my.css"/>
+    </head>
+    <body class="um-vp " ontouchstart>
+        <div id="page_0" class="up ub ub-ver bc-bg" tabindex="0">
+            <!--header开始-->
+            <div id="header" class="uh bc-text-head ub bc-head">
+                <div class="nav-btn" id="nav-left">
+                    <div class="fa fa-angle-left fa-2x"></div>
+                </div>
+                <h1 class="ut ub-f1 ulev-3 ut-s tx-c" tabindex="0">AppCan</h1>
+                <div class="nav-btn nav-bt" id="right">
+                    <div class="fa fa-home fa-2x"></div>
+                </div>
+            </div>
+            <!--header结束--><!--content开始-->
+            <div id="content" class="ub-f1 tx-l">
+                <!-- <div class="mybtn5" id="b1">
+                bringPopoverToFront
+                </div>
+                <div class="mybtn5" id="b2">
+                sendPopoverToBack
+                </div>
+                <div class="mybtn5" id="b3">
+                insertPopoverAbovePopover
+                </div>
+                <div class="mybtn5" id="b4">
+                insertPopoverBelowPopover
+                </div> -->
+            </div>
+            <!--content结束-->
+
+        </div>
+        <script src="js/appcan.js"></script>
+        <script src="js/appcan.control.js"></script>
+    </body>
+    <script>
+        window.uexOnload = function() {
+            uexWindow.openMultiPopover('{"content":[{"inPageName":"a_content1","inUrl":"a_content1.html","inData":""},{"inPageName":"a_content2","inUrl":"a_content2.html","inData":""},{"inPageName":"a_content3","inUrl":"a_content3.html","inData":""}]}', "content", 0, 0, 80, '', '', 5, 0, 2)
+            uexWindow.cbOpenMultiPopover=function(opId,dataType,data){
+                alert("浮动窗口："+data)
+            }
+            // var jsonstr={
+                // "extraInfo":{"opaque":"true","bgColor":"#06c","delayTime":"250","hardware":"1"}
+            // }
+            // uexWindow.openPopover("a_content1", 0, "a_content1.html", "", 0, 120, '', '', '', 0, 0);
+            // uexWindow.openPopover("a_content2", 0, "a_content2.html", "", 0, 0, '', '', '', 0, 0);
+            // uexWindow.openPopover("a_content3", 0, "a_content3.html", "", 0, 0, '', '', '', 0, 0);
+            //uexWindow.setMultiPopoverFrame("content", "10", "10", "400", "400")
+            //uexWindow.insertPopoverBelowPopover("a_content3","a_content2")
+            //uexWindow.open('b', 0, 'b.html', 0, 0, 0, 256)
+            //uexWindow.open('index',0,'index.html',0,0,0,256)
+            //uexWindow.insertWindowBelowWindow('hello','index');
+            // var params = {
+            // leftSliding : {
+            // width : 240,
+            // url : "a_content1.html"
+            // },
+            // rightSliding : {
+            // width : 240,
+            // url : "a_content2.html"
+            // }
+            // };
+            // var paramStr = JSON.stringify(params);
+            // uexWindow.setSlidingWindow(paramStr);
+            //uexWindow.setMultilPopoverFlippingEnbaled(0);
+            //uexWindow.setSlidingWindowEnabled(0);
+            //uexWindow.makeTranslation(100,200,0)
+            //uexWindow.makeScale(2,1,1);
+            // uexWindow.makeRotate(90, 1, 0, 1);
+            // uexWindow.makeAlpha(0.5);
+            // uexWindow.commitAnimition();
+            // uexWindow.setBounce(1);
+            // uexWindow.notifyBounceEvent(1, 1);
+            // uexWindow.showBounceView("1","rgba(15, 155, 155, 100)", 1);
+            // uexWindow.getSlidingWindowState()
+            // uexWindow.cbSlidingWindowState=function(state){
+            // alert(state)
+            // }
+            //uexWindow.reload();
+            //uexWindow.reloadWidgetByAppId(11495624)
+        }
+        // appcan.ready(function() {
+        // var titHeight = $('#header').offset().height;
+        // appcan.frame.open("content", "a_content.html", 0, titHeight);
+        // window.onorientationchange = window.onresize = function() {
+        // appcan.frame.resize("content", 0, titHeight);
+        // }
+        // });
+        // appcan.button(".nav-btn", "btn-act", function() {
+        // appcan.window.close(-1);
+        // })
+        appcan.button("#b1", "ani-act", function() {
+            //uexWindow.setPopoverFrame("content",50,100,300,300)
+            //uexWindow.sendToBack()
+            uexWindow.bringPopoverToFront("a_content1");
+        })
+        appcan.button("#b2", "ani-act", function() {
+            uexWindow.sendPopoverToBack("a_content1");
+        })
+        appcan.button("#b3", "ani-act", function() {
+            uexWindow.bringPopoverToFront("a_content1", "a_content2");
+        })
+        appcan.button("#b4", "ani-act", function() {
+            uexWindow.insertPopoverBelowPopover("a_content1", "a_content3");
+        })
+        appcan.button("#right", "ani-act", function() {
+            //uexWindow.setMultiPopoverFrame("content", 0, 0, 400, 400)
+            uexWindow.openPopover("a_content1", 0, "a_content1.html", "", 0, 0, '', '', '', 0, 0);
+            // uexWindow.beginAnimition()
+            // uexWindow.setAnimitionDelay(1000)
+            // uexWindow.setAnimitionDuration(4000)
+            // uexWindow.setAnimitionCurve(1)
+            // uexWindow.setAnimitionRepeatCount(1)
+            // uexWindow.setAnimitionAutoReverse(1)
+            uexWindow.makeTranslation(100, 200, 0)
+        })
+    </script>
+</html>

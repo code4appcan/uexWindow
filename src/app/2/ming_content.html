@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="css/ui-box.css">
+        <link rel="stylesheet" href="css/ui-base.css">
+        <link rel="stylesheet" href="css/ui-color.css">
+        <link rel="stylesheet" href="css/appcan.icon.css">
+        <link rel="stylesheet" href="css/appcan.control.css">
+        <link rel="stylesheet" href="css/my.css"/>
+    </head>
+    <body class="um-vp bc-bg" ontouchstart>
+        <div class="mybtn" id="btn1">
+            *uexWindow.setWindowFrame
+        </div>
+        <div class="mybtn1" id="btn2">
+            *uexWindow.evaluateScript
+        </div>
+        <div class="mybtn2" id="btn3">
+            *uexWindow.evaluatePopoverScript
+        </div>
+        <div class="mybtn3" id="btn4">
+            *uexWindow.openPopover
+        </div>
+        <div class="mybtn4" id="btn5">
+            *uexWindow.closePopover
+        </div>
+        <div class="mybtn5" id="btn6">
+            *uexWindow.setPopoverFrame
+        </div>
+        <div class="mybtn6" id="btn7">
+           *uexWindow.openMultiPopover
+        </div>
+        <div class="mybtn" id="btn8">
+            *uexWindow.closeMultiPopover
+        </div>
+        <div class="mybtn1" id="btn9">
+            *uexWindow.setMultiPopoverFrame
+        </div>
+        
+        <div class="mybtn1" id="btn16">
+            uexWindow.setSlidingWindow
+        </div>
+        <div class="mybtn2" id="btn17">
+            uexWindow.setSlidingWindowEnabled
+        </div>
+        <div class="mybtn2" id="btn20">
+            uexWindow.toggleSlidingWindow
+        </div>
+        <div class="mybtn3" id="btn18_1">
+            *uexWindow.setWindowScrollbarVisible(true)
+        </div>
+        <div class="mybtn3" id="btn18_2">
+            *uexWindow.setWindowScrollbarVisible(false)
+        </div>
+        
+       <div class="mybtn5" id="btn19">
+           打开测试浮动窗口上下层切换的页面
+        </div>
+        
+    </body>
+    <script src="js/appcan.js"></script>
+    <script src="js/appcan.control.js"></script>
+    </body>
+    <script>
+        appcan.ready(function() {
+        });
+        appcan.button("#btn1", "btn-act", function() {
+            uexWindow.setWindowFrame(30,40,2000);
+        })
+        appcan.button("#btn2", "btn-act", function() {
+            uexWindow.evaluateScript("root",0,"alert('hello')");
+        })
+        appcan.button("#btn3", "btn-act", function() {
+            alert("点击主窗口右上角的按钮1");
+        })
+        appcan.button("#btn4", "btn-act", function() {
+            uexWindow.openPopover("hello","0","hello.html","",0,500,'','','',0,0);
+        })
+        appcan.button("#btn5", "btn-act", function() {
+            alert("执行了开浮动窗的代码之后，点击主窗口右上角的按钮4");
+        })
+        appcan.button("#btn6", "btn-act", function() {
+            uexWindow.setPopoverFrame("content",50,50,400,400);
+        })
+        appcan.button("#btn7", "btn-act", function() {
+            uexWindow.openMultiPopover('{"content":[{"inPageName":"a_content1","inUrl":"a_content1.html","inData":""},{"inPageName":"a_content2","inUrl":"a_content2.html","inData":""},{"inPageName":"a_content3","inUrl":"a_content3.html","inData":""}]}',"content1",0,0,800,'','',5,0,2);
+        })
+        appcan.button("#btn8", "btn-act", function() {
+            alert("点击主窗口右上角的按钮2");
+        })
+        appcan.button("#btn9", "btn-act", function() {
+            alert("打开多浮动窗口之后，在主窗口点击右上角3");
+        })
+        
+        appcan.button("#btn16", "btn-act", function() {
+            var params = {
+        leftSliding : {
+            width : 240,
+            url : "left.html"
+        }
+    };
+    var paramStr = JSON.stringify(params);
+    uexWindow.setSlidingWindow(paramStr);
+        })
+        appcan.button("#btn17", "btn-act", function() {
+           uexWindow.setSlidingWindowEnabled(0);
+        })
+        appcan.button("#btn18_1", "btn-act", function() {
+            uexWindow.setWindowScrollbarVisible("true");
+        })
+        appcan.button("#btn18_2", "btn-act", function() {
+            uexWindow.setWindowScrollbarVisible("false");
+        })
+        appcan.button("#btn19", "btn-act", function() {
+            appcan.window.open({
+                name:"ming1",
+                data:"ming1.html"
+            })
+        })
+        appcan.button("#btn20", "btn-act", function() {
+           var params  = {
+    mark:0,
+    reload:1
+};
+var paramStr = JSON.stringify(params);
+uexWindow.toggleSlidingWindow(paramStr);
+        })
+
+    </script>
+</html>

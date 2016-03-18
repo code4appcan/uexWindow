@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="css/ui-box.css">
+        <link rel="stylesheet" href="css/ui-base.css">
+        <link rel="stylesheet" href="css/ui-color.css">
+        <link rel="stylesheet" href="css/appcan.icon.css">
+        <link rel="stylesheet" href="css/appcan.control.css">
+        <link rel="stylesheet" href="css/my.css"/>
+    </head>
+    <body class="um-vp bc-bg" ontouchstart>
+        <div class="mybtn" id="btn1">
+            statusBarNotification
+        </div>
+        <div class="mybtn1" id="btn2">
+            getSlidingWindowState
+        </div>
+        <div class="mybtn2" id="btn3">
+            cbConfirm
+        </div>
+        <div class="mybtn3" id="btn4">
+            cbPrompt
+        </div>
+        <div class="mybtn4" id="btn5">
+            cbActionSheet
+        </div>
+        <div class="mybtn5" id="a">
+            cbOpenMultiPopover
+        </div>
+        <div class="mybtn6" id="btn6">
+           onSetWindowFrameFinish
+        </div>
+        <script src="js/appcan.js"></script>
+        <script src="js/appcan.control.js"></script>
+    </body>
+    <script>
+        appcan.ready(function() {
+            //回调一定要写在ready里
+            uexWindow.cbConfirm=function(opId,dataType,data){
+                alert("选择了"+data)
+            }
+            uexWindow.cbPrompt=function(opId,dataType,data){
+                alert("执行了："+data);
+            }
+            uexWindow.cbActionSheet=function(opId,dataType,data){
+                alert("选择了："+data)  
+            } 
+             uexWindow.onSetWindowFrameFinish=function(){
+                alert("移动完成！")
+            }
+        })
+        appcan.button(".mybtn", "ani-act", function() {
+            uexWindow.statusBarNotification('appcan你好','hello');
+        })
+        appcan.button(".mybtn1", "ani-act", function() {
+            appcan.window.open("a","a.html");
+        })
+        appcan.button(".mybtn2", "ani-act", function() {
+            uexWindow.confirm("提示", "确定退出吗", "ok,cancel");
+        })
+        appcan.button(".mybtn3", "ani-act", function() {
+            uexWindow.prompt("提示", "输入内容", "请输入...", "ok,cancel");
+        })
+        appcan.button(".mybtn4", "ani-act", function() {
+            uexWindow.actionSheet("菜单", "取消", "选项一,选项二");
+        })
+        appcan.button(".mybtn5", "ani-act", function() {
+            appcan.window.open("b","b.html");
+        })
+        appcan.button(".mybtn6", "ani-act", function() {
+            uexWindow.setWindowFrame(50,50,2000);
+        })
+        
+    </script>
+</html>
