@@ -11,8 +11,6 @@
 
 或demo目录中的uexWindow.ipa
 
-3、部署
 
-请参考server-doc目录中部署文档。
 
 
